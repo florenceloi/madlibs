@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Game</title>
+  <link rel="stylesheet" href="../static/madlibs.css">
+</head>
+<body>
+    <form action="/madlib">
+        Name of person: <input type="text" name="person_name">
+        <br>
+        Select a color:
+            <select name="color_pick">
+                <option value="pink">pink</option>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+                <option value="black">black</option>
+            </select>
+        <br>
+        Select a noun:
+            <input type="radio" name="noun" value="dog">dog
+            <input type="radio" name="noun" value="chair">chair
+            <input type="radio" name="noun" value="lip">lip
+            <input type="radio" name="noun" value="San Francisco">san francisco
+        <br>
+        Select any number of adjective:
+            <input type="checkbox" name="adj" value="fluffy">fluffy
+            <input type="checkbox" name="adj" value="wooden">wooden
+            <input type="checkbox" name="adj" value="gooey">gooey
+            <input type="checkbox" name="adj" value="skinny">skinny
+        <input type="submit">
+    </form>
+</body>
+</html>
