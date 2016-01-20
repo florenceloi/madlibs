@@ -16,7 +16,7 @@ AWESOMENESS = [
 def start_here():
     """Homepage."""
 
-    return "Hi! This is the home page."
+    return render_template("home.html")
 
 
 @app.route('/hello')
@@ -57,14 +57,14 @@ def show_madlib():
 
     adj = request.form.getlist("adj")
     Adj = choice(adj)
+    print Adj, "LOOK HERE"
     person_name = request.form.get("person_name")
     color_pick = request.form.get("color_pick")
     noun = request.form.get("noun")
-
-    madlib_choices = ["madlib.html", "madlib2.html"]
-    madlib_pick = choice(madlib_choices)
-
-    return render_template(madlib_pick, 
+    scenario = request.form.get("Scenario")
+ 
+    return render_template("madlib.html",
+                            Scenario=scenario, 
                             Person=person_name, 
                             Color=color_pick,
                             Noun=noun,

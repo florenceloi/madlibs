@@ -1,10 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <title>Game</title>
-  <link rel="stylesheet" href="../static/madlibs.css">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+
     <form action="/madlib" method="POST">
         Name of person: <input type="text" name="person_name">
         <br>
@@ -27,7 +26,14 @@
             <input type="checkbox" name="adj" value="wooden">wooden
             <input type="checkbox" name="adj" value="gooey">gooey
             <input type="checkbox" name="adj" value="skinny">skinny
+        <br>
+        Select a scenario:
+            <select name="Scenario">
+                <option value="hackbright">Hackbright</option>
+                <option value="shopping">Shopping</option>
+            </select>
+        <br>
         <input type="submit">
     </form>
-</body>
-</html>
+    
+{% endblock %}

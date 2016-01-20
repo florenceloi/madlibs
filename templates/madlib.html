@@ -1,14 +1,18 @@
-<!doctype html>
-<html>
-<head>
-  <title>Madlib</title>
-  <link rel="stylesheet" href="../static/madlibs.css">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Madlib{% endblock %}
+
+{% block content %}
+
+     {% if Scenario == "hackbright" %}
+
+        There once was a {{ Color }} {{ Noun }} sitting in the Hackbright Lab. When {{ Person }} went to pick it up, it burst into flames in a totally {{ Adjective }} way.
+
+    {% else %}
+
+        One time a {{ Color }} {{ Noun }} went shopping in Los Angeles. When {{ Person }} got to the cash register, there was a {{ Adjective }} {{ Noun }} at the counter.
     
-    There once was a {{ Color }} {{ Noun }} sitting in the Hackbright Lab. When {{ Person }} went to pick it up, it burst into flames in a totally {{ Adjective }} way.
+    {% endif %}
+    
+{% endblock %}
 
-
-
-</body>
-</html>
