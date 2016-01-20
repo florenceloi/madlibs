@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, sample
 
 from flask import Flask, render_template, request
 
@@ -32,11 +32,11 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliment_list = sample(AWESOMENESS, 3)
 
     return render_template("compliment.html",
                            person=player,
-                           compliment=compliment)
+                           compliments=compliment_list)
 
 
 @app.route('/game')
@@ -51,15 +51,15 @@ def show_game_form():
         return render_template("game.html")
 
 
-@app.route('/madlib') #when we go to /madlib, call this function  
-def show_madlib():
+@app.route('/madlib', methods=["POST"]) #when we go to /madlib, call this function  
+def show_madlib(): 
     """show madlib result"""
 
-    adj = request.args.getlist("adj")
+    adj = request.form.getlist("adj")
     Adj = choice(adj)
-    person_name = request.args.get("person_name")
-    color_pick = request.args.get("color_pick")
-    noun = request.args.get("noun")
+    person_name = request.form.get("person_name")
+    color_pick = request.form.get("color_pick")
+    noun = request.form.get("noun")
 
     madlib_choices = ["madlib.html", "madlib2.html"]
     madlib_pick = choice(madlib_choices)
